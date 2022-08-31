@@ -1,8 +1,8 @@
-# React + Parcel template
+# photo-gallery-tdd-livestream
 
-A simple project template that is a starting point for frontend development with React.
+A photo gallery frontend with a row-based layout algorithm that was developed via test driven development (TDD).
 
-This code was created during a [live stream](https://youtu.be/T1c6Rp9ijUA) to support the book [Rapid Fullstack Development](https://rapidfullstackdevelopment.com/).
+This code was created during a live stream to support the book [Rapid Fullstack Development](https://rapidfullstackdevelopment.com/).
 
 Follow on [Twitter](https://twitter.com/codecapers) for updates.
 
@@ -16,6 +16,18 @@ Clone this repo, change into the directory and install dependencies:
 
 ```bash
 npm install
+```
+
+## Run the tests
+
+```bash
+npm test
+```
+
+## Run the tests with live reload
+
+```bash
+npm run test:watch
 ```
 
 ## Run the Parcel dev server

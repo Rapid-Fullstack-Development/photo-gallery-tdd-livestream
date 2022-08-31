@@ -1,11 +1,50 @@
-const gallery = require("./gallery.json");
 import { createLayout } from "./layout";
 
+//
+// Uncomment this for the full gallery test data.
+//
+// const gallery = require("./gallery.json");
+
+//
+// Uncomment this for a single item in the gallery.
+//
+// const gallery = [
+//     {
+//         thumb: "https://via.placeholder.com/140x100",
+//         width: 140,
+//         height: 100,
+//     },
+// ];
+
+//
+// Uncomment this for three items in the gallery.
+//
+const gallery = [
+    {
+        thumb: "https://via.placeholder.com/140x100",
+        width: 140,
+        height: 100,
+    },
+    {
+        thumb: "https://via.placeholder.com/100x140",
+        width: 100,
+        height: 140,
+    },
+    {
+        thumb: "https://via.placeholder.com/400x50",
+        width: 400,
+        height: 50,
+    },
+];
+
+//
+// A photo gallery component.
+//
 export function Gallery() {
 
-    const rows = createLayout(gallery);
-
     const galleryWidth = 600;
+    const targetRowHeight = 200;
+    const rows = createLayout(gallery, galleryWidth, targetRowHeight);
 
     return (
         <div
@@ -21,14 +60,14 @@ export function Gallery() {
                         style={{
                             display: "flex",
                             flexDirection: "row",
-                            height: `200px`,
+                            height: `${targetRowHeight}px`,
                         }}
                         >
                         {row.items.map(item => {
                             return (
                                 <img 
-                                    key={item.urls.thumb}
-                                    src={item.urls.thumb} 
+                                    key={item.thumb}
+                                    src={item.thumb} 
                                     />
                             );
                         })}
