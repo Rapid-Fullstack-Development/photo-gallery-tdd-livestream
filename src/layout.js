@@ -24,7 +24,7 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
         const computedWidth = targetRowHeight * aspectRatio;
 
         if (curRow.items.length > 0) {
-            if (computedWidth > galleryWidth) {
+            if (curRowWidth + computedWidth > galleryWidth) {
                 curRow = {
                     items: [],
                     height: targetRowHeight,

@@ -68,17 +68,17 @@ describe("layout", () => {
             {
                 thumb: "https://via.placeholder.com/140x100",
                 width: 140,
-                height: 100,
+                height: 200,
             },
             {
                 thumb: "https://via.placeholder.com/100x140",
                 width: 100,
-                height: 140,
+                height: 200,
             },
             {
                 thumb: "https://via.placeholder.com/400x50",
                 width: 400,
-                height: 50,
+                height: 200,
             },
         ];
 
