@@ -2,7 +2,7 @@
 
 A photo gallery frontend with a row-based layout algorithm that was developed via test driven development (TDD).
 
-This code was created during a live stream to support the book [Rapid Fullstack Development](https://rapidfullstackdevelopment.com/).
+This code was created during a [live stream](https://youtu.be/Xi8gVWzvm9s) to support the book [Rapid Fullstack Development](https://rapidfullstackdevelopment.com/).
 
 Follow on [Twitter](https://twitter.com/codecapers) for updates.
 
