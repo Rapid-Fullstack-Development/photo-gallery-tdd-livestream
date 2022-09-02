@@ -35,8 +35,45 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
             }
         }
 
-        curRow.items.push(item);
+        //
+        // Clone the item so we can modify it without modifying the original.
+        //
+        const clone = Object.assign({}, item, {
+            width: computedWidth,
+            height: targetRowHeight,
+            aspectRatio: aspectRatio,
+        });
+
+        //
+        // Add the item to the row.
+        //
+        curRow.items.push(clone);
         curRowWidth += computedWidth;
+    }
+
+    //
+    // For all rows, except the last row, stretch the items towards the right hand boundary.
+    //
+    for (let rowIndex = 0; rowIndex < rows.length-1; rowIndex++) {
+        const row = rows[rowIndex];
+
+        let rowWidth = 0; //TODO: This could be cached earlier for better performance.
+        for (const item of row.items) {
+            rowWidth += item.width;
+        }
+        
+        const gap = galleryWidth - rowWidth;
+        const deltaWidth = gap / row.items.length;
+
+        //
+        // Expand each item to fill the gap.
+        //
+        for (const item of row.items) {
+            const aspectRatio = item.aspectRatio;
+
+            item.width += deltaWidth;
+            item.height = item.width / (1.0 / aspectRatio);
+        }
     }
 
     return rows;

@@ -29,19 +29,19 @@ gallery = gallery.map(item => {
 //
 // const gallery = [
 //     {
-//         thumb: "https://via.placeholder.com/140x100",
-//         width: 140,
-//         height: 100,
+//         thumb: "https://via.placeholder.com/240x200",
+//         width: 240,
+//         height: 200,
 //     },
 //     {
-//         thumb: "https://via.placeholder.com/100x140",
-//         width: 100,
-//         height: 140,
+//         thumb: "https://via.placeholder.com/220x200",
+//         width: 220,
+//         height: 200,
 //     },
 //     {
-//         thumb: "https://via.placeholder.com/400x50",
-//         width: 400,
-//         height: 50,
+//         thumb: "https://via.placeholder.com/230x200",
+//         width: 230,
+//         height: 200,
 //     },
 // ];
 
