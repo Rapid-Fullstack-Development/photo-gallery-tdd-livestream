@@ -3,6 +3,7 @@
 // Creates a row-based layout for the photo gallery.
 //
 export function createLayout(items, galleryWidth, targetRowHeight) {
+
     if (!items || !items.length) {
         return [];
     }
@@ -65,6 +66,8 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
         const gap = galleryWidth - rowWidth;
         const deltaWidth = gap / row.items.length;
 
+        let maxThumbHeight = 0;
+
         //
         // Expand each item to fill the gap.
         //
@@ -72,8 +75,11 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
             const aspectRatio = item.aspectRatio;
 
             item.width += deltaWidth;
-            item.height = item.width / (1.0 / aspectRatio);
+            item.height = item.width * (1.0 / aspectRatio);
+            maxThumbHeight = Math.max(maxThumbHeight, item.height);
         }
+
+        row.height = maxThumbHeight;
     }
 
     return rows;

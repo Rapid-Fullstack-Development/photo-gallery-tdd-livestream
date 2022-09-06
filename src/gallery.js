@@ -68,7 +68,7 @@ export function Gallery() {
                         style={{
                             display: "flex",
                             flexDirection: "row",
-                            height: `${targetRowHeight}px`,
+                            height: `${row.height}px`,
                         }}
                         >
                         {row.items.map(item => {

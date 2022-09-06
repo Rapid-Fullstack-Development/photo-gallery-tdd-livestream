@@ -122,6 +122,7 @@ describe("layout", () => {
         const rows = createLayout(items, galleryWidth, targetRowHeight);
         const firstRow = rows[0];
         expect(firstRow.items.length).toBe(2);
+        expect(firstRow.height).toBeGreaterThan(targetRowHeight);
 
         const item1 = firstRow.items[0];
         expect(item1.width).toBeGreaterThan(items[0].width);
@@ -133,9 +134,11 @@ describe("layout", () => {
 
         const secondRow = rows[1];
         expect(secondRow.items.length).toBe(1);
+        expect(secondRow.height).toBeCloseTo(targetRowHeight);
 
         const item3 = secondRow.items[0];
         expect(item3.width).toBeCloseTo(items[2].width);
         expect(item3.height).toBeCloseTo(items[2].height);
+        
     });    
 });
