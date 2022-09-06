@@ -135,9 +135,7 @@ describe("layout", () => {
         expect(secondRow.items.length).toBe(1);
 
         const item3 = secondRow.items[0];
-        expect(item3.width).toBeGreaterThan(items[2].width-0.001);
-        expect(item3.width).toBeLessThan(items[2].width+0.001);
-        expect(item3.height).toBeGreaterThan(items[2].height-0.001);
-        expect(item3.height).toBeLessThan(items[2].height+0.001);
+        expect(item3.width).toBeCloseTo(items[2].width);
+        expect(item3.height).toBeCloseTo(items[2].height);
     });    
 });
