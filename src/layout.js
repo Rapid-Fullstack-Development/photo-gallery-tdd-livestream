@@ -13,11 +13,10 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
     let curRow = {
         items: [],       
         height: targetRowHeight,
+        width: 0,
     };
 
     rows.push(curRow);
-
-    let curRowWidth = 0;
 
     for (const item of items) {
 
@@ -25,14 +24,13 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
         const computedWidth = targetRowHeight * aspectRatio;
 
         if (curRow.items.length > 0) {
-            if (curRowWidth + computedWidth > galleryWidth) {
+            if (curRow.width + computedWidth > galleryWidth) {
                 curRow = {
                     items: [],
                     height: targetRowHeight,
+                    width: 0,
                 };
-                rows.push(curRow);
-
-                curRowWidth = 0;
+                rows.push(curRow);                
             }
         }
 
@@ -49,7 +47,7 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
         // Add the item to the row.
         //
         curRow.items.push(clone);
-        curRowWidth += computedWidth;
+        curRow.width += computedWidth;
     }
 
     //
@@ -58,10 +56,7 @@ export function createLayout(items, galleryWidth, targetRowHeight) {
     for (let rowIndex = 0; rowIndex < rows.length-1; rowIndex++) {
         const row = rows[rowIndex];
 
-        let rowWidth = 0; //TODO: This could be cached earlier for better performance.
-        for (const item of row.items) {
-            rowWidth += item.width;
-        }
+        let rowWidth = row.width;
         
         const gap = galleryWidth - rowWidth;
         const deltaWidth = gap / row.items.length;
